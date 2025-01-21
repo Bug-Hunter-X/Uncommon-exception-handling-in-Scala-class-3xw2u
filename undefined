@@ -1,0 +1,18 @@
+```scala
+class MyClass(val name: String) {
+  private var _age: Option[Int] = None //use Option to handle nulls
+
+  def age: Option[Int] = _age
+  def age_=(newAge: Int): Unit = {
+    if (newAge >= 0) _age = Some(newAge) else _age = None // use Some or None to handle invalid age
+  }
+}
+
+object Main extends App {
+  val myObj = new MyClass("John")
+  myObj.age = -5
+  println(myObj.age) //Prints None
+  myObj.age = 30
+  println(myObj.age) //Prints Some(30)
+}
+```
